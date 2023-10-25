@@ -17,12 +17,6 @@ namespace WinFormsApp1
             result = a + b;
 
             label1.Text = result.ToString();
-
-
-
-
-
-
         }
         int a = 0;
         int b = 0;
@@ -73,20 +67,65 @@ namespace WinFormsApp1
 
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        private void btnTest2_Click(object sender, EventArgs e)
         {
-
+            lblResult2.Text = "";
+          
+            switch (cbTest2.SelectedIndex)
+            {
+                case 0:
+                    ForMethod();
+                    break;
+                case 1:
+                    WhileMethod();
+                    break;
+                case 2:
+                    DoWhileMethod();
+                    break;
+                default:
+                    MessageBox.Show("OH MY GOD!!!!!");
+                    break;  
+            }
+            
         }
 
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
+        #region Members
 
+        private void ForMethod()
+        {
+            for (int i = 0; i <= nudTest1.Value; i += 2)
+            {
+                lblResult2.Text += i.ToString();
+            }
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void WhileMethod()
         {
-             
+            int index = 0;
+
+            while (index <= nudTest1.Value)
+            {
+                lblResult2.Text += index.ToString();
+
+                index++;
+            }
         }
+
+        private void DoWhileMethod()
+        {
+            int index = 7;
+
+            do
+            {
+                lblResult2.Text += index.ToString();
+
+                index++;
+            }
+            while (index <= nudTest1.Value);
+        }
+
+        #endregion Members
+
     }
 
 
